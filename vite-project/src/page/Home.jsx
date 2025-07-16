@@ -58,9 +58,9 @@ function Home() {
         width: "100vw",
         margin: 0,
         padding: 0,
-        position: "fixed",
-        top: 0,
-        left: 0,
+        // position: "fixed",  // <-- ลบบรรทัดนี้ออก
+        // top: 0,
+        // left: 0,
         overflowX: "hidden",
       }}
     >
@@ -312,8 +312,8 @@ function Home() {
           }}
         >
           <img
-            src="https://static-cdn.jtvnw.net/ttv-boxart/516575-285x380.jpg"
-            alt="VALORANT"
+            src="https://play-lh.googleusercontent.com/ujf5Hb-isODA63va99oUznil48Ru_iWdPYnrYFA12Y8eOhPyb6WoHHhVBEBSzG4mWmk"
+            alt="EA SPORTS FC™ MOBILE 24"
             style={{
               width: "100%",
               height: "160px",
@@ -347,7 +347,7 @@ function Home() {
               minHeight: "48px",
             }}
           >
-            VALORANT
+            EA SPORTS FC™ MOBILE 24
           </div>
           <Link
             to="/data"
