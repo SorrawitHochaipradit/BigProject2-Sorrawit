@@ -256,6 +256,7 @@ function Home() {
                 transition: "all 0.3s",
                 background: "#111",
                 display: "block",
+                position: "relative",
               }}
             >
               <img
@@ -286,6 +287,98 @@ function Home() {
         >
           &#62;
         </button>
+      </div>
+      {/* กรอบลิงค์ไปหน้า data */}
+      <div
+        style={{
+          width: "100vw",
+          display: "flex",
+          justifyContent: "center",
+          marginTop: "32px",
+        }}
+      >
+        <div
+          style={{
+            width: "220px",
+            background: "#181818",
+            border: "1.5px solid #c6ff00",
+            borderRadius: "8px",
+            boxShadow: "0 0 0 2px #222",
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "center",
+            position: "relative",
+            overflow: "hidden",
+          }}
+        >
+          <img
+            src="https://static-cdn.jtvnw.net/ttv-boxart/516575-285x380.jpg"
+            alt="VALORANT"
+            style={{
+              width: "100%",
+              height: "160px",
+              objectFit: "cover",
+              borderTopLeftRadius: "8px",
+              borderTopRightRadius: "8px",
+            }}
+          />
+          <div
+            style={{
+              background: "#c6ff00",
+              color: "#181818",
+              fontWeight: "bold",
+              fontSize: "1.05rem",
+              width: "100%",
+              textAlign: "center",
+              padding: "6px 0 2px 0",
+            }}
+          >
+            ลดสูงสุด 7%
+          </div>
+          <div
+            style={{
+              color: "#fff",
+              fontWeight: "bold",
+              fontSize: "1.05rem",
+              padding: "18px 0 0 0",
+              width: "100%",
+              textAlign: "center",
+              background: "none",
+              minHeight: "48px",
+            }}
+          >
+            VALORANT
+          </div>
+          <Link
+            to="/data"
+            style={{
+              display: "block",
+              margin: "24px auto 18px auto",
+              width: "80%",
+              background: "#181818",
+              color: "#fff",
+              fontWeight: "bold",
+              fontSize: "1.1rem",
+              border: "2px solid #c6ff00",
+              borderRadius: "6px",
+              padding: "10px 0",
+              textAlign: "center",
+              textDecoration: "none",
+              cursor: "pointer",
+              transition: "background 0.2s, color 0.2s",
+            }}
+            onMouseOver={(e) => {
+              e.currentTarget.style.background = "#c6ff00";
+              e.currentTarget.style.color = "#181818";
+            }}
+            onMouseOut={(e) => {
+              e.currentTarget.style.background = "#181818";
+              e.currentTarget.style.color = "#fff";
+            }}
+          >
+            เติมเกม
+          </Link>
+        </div>
       </div>
     </div>
   );
