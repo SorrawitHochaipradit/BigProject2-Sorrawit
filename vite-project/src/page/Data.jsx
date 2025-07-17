@@ -10,26 +10,44 @@ function Data() {
     { to: "/about", label: "โปรโมชั่น" },
   ];
 
-  // สร้างข้อมูลตัวอย่าง 50 แถว
-  const players = Array.from({ length: 50 }, (_, i) => ({
-    name: `Player ${i + 1}`,
-    position: ["ST", "RW", "RB", "LW", "CB", "CAM"][i % 6],
-    ovr: 111,
-    img: "https://media.contentapi.ea.com/content/dam/ea/fifa/fifa-mobile/season-24/players/players-24-drogba.png",
+  // ข้อมูลผู้เล่น 50 แถว
+  const players = [
+  {
+    name: "Lionel Messi",
+    position: "RW",
+    ovr: 93,
+    img: "https://upload.wikimedia.org/wikipedia/commons/8/89/Lionel_Messi_20180626.jpg",
     stats: {
-      PAC: 120 + (i % 20),
-      SHO: 130 - (i % 10),
-      PAS: 100 + (i % 15),
-      DRI: 109 + (i % 25),
-      DEF: 60 + (i % 70),
-      PHY: 123 - (i % 50),
+      PAC: 85,
+      SHO: 92,
+      PAS: 91,
+      DRI: 95,
+      DEF: 38,
+      PHY: 65,
     },
-  }));
+  },
+  {
+    name: "Cristiano Ronaldo",
+    position: "ST",
+    ovr: 91,
+    img: "https://upload.wikimedia.org/wikipedia/commons/8/8c/Cristiano_Ronaldo_2018.jpg",
+    stats: {
+      PAC: 87,
+      SHO: 93,
+      PAS: 82,
+      DRI: 89,
+      DEF: 35,
+      PHY: 77,
+    },
+  },
+  // 👉 เพิ่มอีก 49 คนในรูปแบบเดียวกัน
+];
+
 
   return (
     <div
       style={{
-        background: "#181828",
+        background: "#000",
         minHeight: "100vh",
         width: "100vw",
         margin: 0,
@@ -48,7 +66,6 @@ function Data() {
           position: "relative",
         }}
       >
-        {/* Logo */}
         <div
           style={{
             display: "flex",
@@ -70,7 +87,7 @@ function Data() {
             <span style={{ color: "#c6ff00" }}>ON</span>
           </span>
         </div>
-        {/* Search */}
+
         <div
           style={{
             flex: "0 1 500px",
@@ -105,7 +122,7 @@ function Data() {
             <option>▼</option>
           </select>
         </div>
-        {/* Right Menu */}
+
         <div
           style={{
             display: "flex",
@@ -116,21 +133,12 @@ function Data() {
           }}
         >
           <span style={{ color: "#fff", fontSize: "1rem" }}>ไทย ▼</span>
-          <span
-            style={{ color: "#fff", fontSize: "1.5rem", cursor: "pointer" }}
-          >
-            🛒
-          </span>
-          <span style={{ color: "#fff", fontSize: "1rem", cursor: "pointer" }}>
-            ลงทะเบียน
-          </span>
-          <span
-            style={{ color: "#c6ff00", fontSize: "1rem", cursor: "pointer" }}
-          >
-            เข้าสู่ระบบ
-          </span>
+          <span style={{ color: "#fff", fontSize: "1.5rem", cursor: "pointer" }}>🛒</span>
+          <span style={{ color: "#fff", fontSize: "1rem", cursor: "pointer" }}>ลงทะเบียน</span>
+          <span style={{ color: "#c6ff00", fontSize: "1rem", cursor: "pointer" }}>เข้าสู่ระบบ</span>
         </div>
       </nav>
+
       {/* Main Menu Bar */}
       <div
         style={{
@@ -139,7 +147,6 @@ function Data() {
           alignItems: "center",
           background: "#000",
           borderBottom: "1px solid #222",
-          position: "relative",
         }}
       >
         {menu.map((item) => (
@@ -155,10 +162,6 @@ function Data() {
               position: "relative",
               display: "inline-block",
               textAlign: "center",
-              fontFamily: "inherit",
-              ...(location.pathname === item.to && {
-                color: "#fff",
-              }),
             }}
           >
             {item.label}
@@ -179,39 +182,30 @@ function Data() {
           </Link>
         ))}
       </div>
-      {/* Content */}
-      <div style={{ margin: "40px auto", maxWidth: "900px" }}>
+
+      {/* Table */}
+      <div style={{ maxWidth: "1000px", margin: "40px auto", padding: "0 20px" }}>
         <div
           style={{
             color: "#fff",
-            fontWeight: "bold",
             fontSize: "1.5rem",
-            marginBottom: "24px",
-            textAlign: "left",
+            fontWeight: "bold",
+            marginBottom: "16px",
           }}
         >
-          FC 24/25 Player Stats
+          Player Stats Table
         </div>
-        <div
-          style={{
-            background: "#22223a",
-            borderRadius: "12px",
-            overflow: "hidden",
-            boxShadow: "0 2px 12px #0002",
-          }}
-        >
+        <div>
           {/* Header */}
           <div
             style={{
               display: "grid",
-              gridTemplateColumns: "90px 160px 70px 70px 70px 70px 70px 70px",
-              alignItems: "center",
-              padding: "16px 24px",
-              borderBottom: "1px solid #333",
+              gridTemplateColumns: "120px 1fr repeat(6, 60px)",
               color: "#c6ff00",
               fontWeight: "bold",
-              fontSize: "1.1rem",
-              background: "#181828",
+              padding: "12px 16px",
+              background: "#111",
+              borderBottom: "1px solid #333",
             }}
           >
             <div>OVR</div>
@@ -223,70 +217,53 @@ function Data() {
             <div>DEF</div>
             <div>PHY</div>
           </div>
+
           {/* Rows */}
-          <div>
-            {players.map((p, idx) => (
-              <div
-                key={idx}
-                style={{
-                  display: "grid",
-                  gridTemplateColumns:
-                    "90px 160px 70px 70px 70px 70px 70px 70px",
-                  alignItems: "center",
-                  padding: "16px 24px",
-                  borderBottom: "1px solid #222",
-                  background: idx % 2 === 0 ? "#22223a" : "#181828",
-                }}
-              >
-                <div style={{ display: "flex", alignItems: "center" }}>
-                  <img
-                    src={p.img}
-                    alt={p.name}
-                    style={{
-                      width: "48px",
-                      height: "48px",
-                      borderRadius: "8px",
-                      marginRight: "8px",
-                      objectFit: "cover",
-                      background: "#222",
-                    }}
-                  />
-                  <span style={{ fontWeight: "bold", color: "#fff" }}>
-                    {p.ovr}
-                  </span>
-                </div>
-                <div style={{ color: "#fff", fontWeight: "bold" }}>
-                  {p.name}
-                  <div style={{ fontSize: "0.95rem", color: "#c6ff00" }}>
-                    {p.position}
-                  </div>
-                </div>
-                <div style={statBox}>{p.stats.PAC}</div>
-                <div style={statBox}>{p.stats.SHO}</div>
-                <div style={statBox}>{p.stats.PAS}</div>
-                <div style={statBox}>{p.stats.DRI}</div>
-                <div style={statBox}>{p.stats.DEF}</div>
-                <div style={statBox}>{p.stats.PHY}</div>
+          {players.map((p, i) => (
+            <div
+              key={i}
+              style={{
+                display: "grid",
+                gridTemplateColumns: "120px 1fr repeat(6, 60px)",
+                alignItems: "center",
+                padding: "10px 16px",
+                background: i % 2 === 0 ? "#181828" : "#222",
+                borderBottom: "1px solid #111",
+                color: "#fff",
+              }}
+            >
+              <div style={{ display: "flex", alignItems: "center" }}>
+                <img
+                  src={p.img}
+                  alt={p.name}
+                  style={{
+                    width: "40px",
+                    height: "40px",
+                    borderRadius: "8px",
+                    objectFit: "cover",
+                    background: "#000",
+                    marginRight: "8px",
+                    border: "2px solid #c6ff00",
+                  }}
+                />
+                <span>{p.ovr}</span>
               </div>
-            ))}
-          </div>
+              <div>
+                <div style={{ fontWeight: "bold" }}>{p.name}</div>
+                <div style={{ fontSize: "0.85rem", color: "#c6ff00" }}>{p.position}</div>
+              </div>
+              <div>{p.stats.PAC}</div>
+              <div>{p.stats.SHO}</div>
+              <div>{p.stats.PAS}</div>
+              <div>{p.stats.DRI}</div>
+              <div>{p.stats.DEF}</div>
+              <div>{p.stats.PHY}</div>
+            </div>
+          ))}
         </div>
       </div>
     </div>
   );
 }
-
-// สไตล์กล่อง stat
-const statBox = {
-  width: "60px",
-  background: "#23233a",
-  color: "#fff",
-  fontWeight: "bold",
-  fontSize: "1.05rem",
-  borderRadius: "8px",
-  padding: "8px 0",
-  textAlign: "center",
-  margin: "0 4px",
-};
 
 export default Data;
