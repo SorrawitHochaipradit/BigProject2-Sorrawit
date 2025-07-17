@@ -322,19 +322,7 @@ function Home() {
               borderTopRightRadius: "8px",
             }}
           />
-          <div
-            style={{
-              background: "#c6ff00",
-              color: "#181818",
-              fontWeight: "bold",
-              fontSize: "1.05rem",
-              width: "100%",
-              textAlign: "center",
-              padding: "6px 0 2px 0",
-            }}
-          >
-            ลดสูงสุด 7%
-          </div>
+          {/* ลบกล่องสีเขียวและข้อความ "ลดสูงสุด 7%" ออก */}
           <div
             style={{
               color: "#fff",
@@ -376,7 +364,7 @@ function Home() {
               e.currentTarget.style.color = "#fff";
             }}
           >
-            เติมเกม
+            แนะนำ
           </Link>
         </div>
       </div>
