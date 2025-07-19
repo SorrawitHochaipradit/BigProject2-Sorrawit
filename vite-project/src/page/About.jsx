@@ -4,6 +4,27 @@ import { Link, useLocation } from "react-router-dom";
 function About() {
   const location = useLocation();
 
+  const cardStyle = {
+  background: "#111",
+  borderRadius: "8px",
+  overflow: "hidden",
+  boxShadow: "0 4px 10px rgba(0,0,0,0.5)",
+  textAlign: "center",
+  color: "#fff",
+  width: "300px",
+};
+
+const imgStyle = {
+  width: "100%",
+  display: "block",
+};
+
+const descStyle = {
+  padding: "10px 0",
+  fontSize: "1rem",
+};
+
+
   const menu = [
     { to: "/", label: "หน้าหลัก" },
     { to: "/data", label: "เกม" },
@@ -170,6 +191,75 @@ function About() {
       <div style={{ textAlign: "center", marginTop: "50px", color: "#fff" }}>
         {/* เพิ่มเนื้อหาของหน้า About ที่นี่ */}
         <h2>About Page</h2>
+          <div style={{
+              display: "flex",
+              flexWrap: "wrap",
+              justifyContent: "center",
+              gap: "20px",
+              padding: "40px",
+            }}
+          >
+            {/* รูปที่ 1 */}
+            <div style={cardStyle}>
+              <img src="https://via.placeholder.com/300x180?text=Image+1" alt="Image 1" style={imgStyle} />
+              <div style={descStyle}>คำอธิบายรูปภาพที่ 1</div>
+            </div>
+
+            {/* รูปที่ 2 */}
+            <div style={cardStyle}>
+              <img src="https://via.placeholder.com/300x180?text=Image+2" alt="Image 2" style={imgStyle} />
+              <div style={descStyle}>คำอธิบายรูปภาพที่ 2</div>
+            </div>
+
+            {/* รูปที่ 3 */}
+            <div style={cardStyle}>
+              <img src="https://via.placeholder.com/300x180?text=Image+3" alt="Image 3" style={imgStyle} />
+              <div style={descStyle}>คำอธิบายรูปภาพที่ 3</div>
+            </div>
+
+            {/* รูปที่ 4 */}
+            <div style={cardStyle}>
+              <img src="https://via.placeholder.com/300x180?text=Image+4" alt="Image 4" style={imgStyle} />
+              <div style={descStyle}>คำอธิบายรูปภาพที่ 4</div>
+            </div>
+
+            {/* รูปที่ 5 */}
+            <div style={cardStyle}>
+              <img src="https://via.placeholder.com/300x180?text=Image+5" alt="Image 5" style={imgStyle} />
+              <div style={descStyle}>คำอธิบายรูปภาพที่ 5</div>
+            </div>
+
+            {/* รูปที่ 6 */}
+            <div style={cardStyle}>
+              <img src="https://via.placeholder.com/300x180?text=Image+6" alt="Image 6" style={imgStyle} />
+              <div style={descStyle}>คำอธิบายรูปภาพที่ 6</div>
+            </div>
+
+            {/* รูปที่ 7 */}
+            <div style={cardStyle}>
+              <img src="https://via.placeholder.com/300x180?text=Image+7" alt="Image 7" style={imgStyle} />
+              <div style={descStyle}>คำอธิบายรูปภาพที่ 7</div>
+            </div>
+
+            {/* รูปที่ 8 */}
+            <div style={cardStyle}>
+              <img src="https://via.placeholder.com/300x180?text=Image+8" alt="Image 8" style={imgStyle} />
+              <div style={descStyle}>คำอธิบายรูปภาพที่ 8</div>
+            </div>
+
+            {/* รูปที่ 9 */}
+            <div style={cardStyle}>
+              <img src="https://via.placeholder.com/300x180?text=Image+9" alt="Image 9" style={imgStyle} />
+              <div style={descStyle}>คำอธิบายรูปภาพที่ 9</div>
+            </div>
+
+            {/* รูปที่ 10 */}
+            <div style={cardStyle}>
+              <img src="https://via.placeholder.com/300x180?text=Image+10" alt="Image 10" style={imgStyle} />
+              <div style={descStyle}>คำอธิบายรูปภาพที่ 10</div>
+            </div>
+          </div>
+          
       </div>
     </div>
   );
