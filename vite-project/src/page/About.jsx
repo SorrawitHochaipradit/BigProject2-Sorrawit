@@ -1,34 +1,25 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 
 function About() {
   const location = useLocation();
+  const [uid, setUid] = useState("");
+  const [truemoney, setTruemoney] = useState("");
 
-  const cardStyle = {
-  background: "#111",
-  borderRadius: "8px",
-  overflow: "hidden",
-  boxShadow: "0 4px 10px rgba(0,0,0,0.5)",
-  textAlign: "center",
-  color: "#fff",
-  width: "300px",
-};
+  const handleSubmit = () => {
+    if (!uid || !truemoney) {
+      alert("กรุณากรอก UID และรหัสบัตร TrueMoney ให้ครบถ้วน");
+      return;
+    }
 
-const imgStyle = {
-  width: "100%",
-  display: "block",
-};
-
-const descStyle = {
-  padding: "10px 0",
-  fontSize: "1rem",
-};
-
+    alert("เติมเงินสำเร็จ!");
+    window.location.reload();
+  };
 
   const menu = [
     { to: "/", label: "หน้าหลัก" },
-    { to: "/data", label: "เกม" },
-    { to: "/about", label: "โปรโมชั่น" },
+    { to: "/data", label: "แนะนำ" },
+    { to: "/about", label: "เติมเกม" },
   ];
 
   return (
@@ -43,102 +34,42 @@ const descStyle = {
         top: 0,
         left: 0,
         overflowX: "hidden",
+        color: "#fff",
       }}
     >
       {/* Navigation Bar */}
       <nav
-        style={{
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "center",
-          padding: "16px 40px",
-          background: "#000",
-          position: "relative",
-        }}
-      >
-        {/* Logo */}
-        <div
-          style={{
-            display: "flex",
-            alignItems: "center",
-            position: "absolute",
-            left: "40px",
-          }}
-        >
-          <span
-            style={{
-              color: "#fff",
-              fontWeight: "bold",
-              fontSize: "2rem",
-              letterSpacing: "2px",
-              fontFamily: "Arial, sans-serif",
-            }}
-          >
-            GAME
-            <span style={{ color: "#c6ff00" }}>ON</span>
-          </span>
-        </div>
-        {/* Search */}
-        <div
-          style={{
-            flex: "0 1 500px",
-            display: "flex",
-            justifyContent: "center",
-          }}
-        >
-          <input
-            type="text"
-            placeholder="ค้นหา"
-            style={{
-              width: "350px",
-              padding: "8px 16px",
-              borderRadius: "6px",
-              border: "none",
-              background: "#333",
-              color: "#fff",
-              fontSize: "1rem",
-              marginRight: "8px",
-            }}
-          />
-          <select
-            style={{
-              background: "#333",
-              color: "#fff",
-              border: "none",
-              borderRadius: "6px",
-              padding: "8px",
-              fontSize: "1rem",
-            }}
-          >
-            <option>▼</option>
-          </select>
-        </div>
-        {/* Right Menu */}
-        <div
-          style={{
-            display: "flex",
-            alignItems: "center",
-            gap: "24px",
-            position: "absolute",
-            right: "40px",
-          }}
-        >
-          <span style={{ color: "#fff", fontSize: "1rem" }}>ไทย ▼</span>
-          <span
-            style={{ color: "#fff", fontSize: "1.5rem", cursor: "pointer" }}
-          >
-            🛒
-          </span>
-          <span style={{ color: "#fff", fontSize: "1rem", cursor: "pointer" }}>
-            ลงทะเบียน
-          </span>
-          <span
-            style={{ color: "#c6ff00", fontSize: "1rem", cursor: "pointer" }}
-          >
-            เข้าสู่ระบบ
-          </span>
-        </div>
-      </nav>
+  style={{
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "space-between",
+    padding: "12px 40px",    // ปรับเป็น padding เหมือนกันทั้งบนล่าง
+    height: "60px",          // กำหนดความสูงให้คงที่
+    background: "#000",
+    position: "relative",
+  }}
+>
+  {/* Logo */}
+  <div style={{ display: "flex", alignItems: "center", height: "100%" }}>
+    <span
+      style={{
+        color: "#fff",
+        fontWeight: "bold",
+        fontSize: "2rem",
+        letterSpacing: "2px",
+        fontFamily: "Arial, sans-serif",
+        lineHeight: "1",   // ลดช่องว่างของข้อความให้แน่นขึ้น
+      }}
+    >
+      term<span style={{ color: "#c6ff00" }}>game</span>
+    </span>
+  </div>
+
+  {/* Right Menu */}
+ 
+</nav>
+
+
       {/* Main Menu Bar */}
       <div
         style={{
@@ -147,7 +78,6 @@ const descStyle = {
           alignItems: "center",
           background: "#000",
           borderBottom: "1px solid #222",
-          position: "relative",
         }}
       >
         {menu.map((item) => (
@@ -164,9 +94,6 @@ const descStyle = {
               display: "inline-block",
               textAlign: "center",
               fontFamily: "inherit",
-              ...(location.pathname === item.to && {
-                color: "#fff",
-              }),
             }}
           >
             {item.label}
@@ -187,79 +114,87 @@ const descStyle = {
           </Link>
         ))}
       </div>
+
       {/* Content */}
-      <div style={{ textAlign: "center", marginTop: "50px", color: "#fff" }}>
-        {/* เพิ่มเนื้อหาของหน้า About ที่นี่ */}
-        <h2>About Page</h2>
-          <div style={{
-              display: "flex",
-              flexWrap: "wrap",
-              justifyContent: "center",
-              gap: "20px",
-              padding: "40px",
-            }}
-          >
-            {/* รูปที่ 1 */}
-            <div style={cardStyle}>
-              <img src="https://via.placeholder.com/300x180?text=Image+1" alt="Image 1" style={imgStyle} />
-              <div style={descStyle}>คำอธิบายรูปภาพที่ 1</div>
-            </div>
+      <div
+        style={{
+          maxWidth: "500px",
+          margin: "60px auto",
+          padding: "20px",
+          textAlign: "center",
+          background: "#111",
+          borderRadius: "12px",
+        }}
+      >
+        {/* Banner */}
+        <img
+          src="https://static0.givemesportimages.com/wordpress/wp-content/uploads/2025/03/epl_-fifa-mobile.jpg"
+          alt="Top Up Banner"
+          style={{
+            width: "100%",
+            borderRadius: "8px",
+            marginBottom: "20px",
+          }}
+        />
 
-            {/* รูปที่ 2 */}
-            <div style={cardStyle}>
-              <img src="https://via.placeholder.com/300x180?text=Image+2" alt="Image 2" style={imgStyle} />
-              <div style={descStyle}>คำอธิบายรูปภาพที่ 2</div>
-            </div>
+        {/* Description */}
+        <p style={{ fontSize: "1.1rem", marginBottom: "24px" }}>
+          กรุณากรอก UID และรหัสบัตร TrueMoney ของคุณเพื่อเติมเงินเกม
+        </p>
 
-            {/* รูปที่ 3 */}
-            <div style={cardStyle}>
-              <img src="https://via.placeholder.com/300x180?text=Image+3" alt="Image 3" style={imgStyle} />
-              <div style={descStyle}>คำอธิบายรูปภาพที่ 3</div>
-            </div>
+        {/* UID */}
+        <input
+          type="text"
+          placeholder="กรอก UID"
+          value={uid}
+          onChange={(e) => setUid(e.target.value)}
+          style={{
+            width: "75%",
+            padding: "12px",
+            marginBottom: "16px",
+            borderRadius: "6px",
+            border: "1px solid #555",
+            background: "#222",
+            color: "#fff",
+            fontSize: "1rem",
+          }}
+        />
 
-            {/* รูปที่ 4 */}
-            <div style={cardStyle}>
-              <img src="https://via.placeholder.com/300x180?text=Image+4" alt="Image 4" style={imgStyle} />
-              <div style={descStyle}>คำอธิบายรูปภาพที่ 4</div>
-            </div>
+        {/* TrueMoney Code */}
+        <input
+          type="text"
+          placeholder="กรอกรหัสบัตร TrueMoney"
+          value={truemoney}
+          onChange={(e) => setTruemoney(e.target.value)}
+          style={{
+            width: "75%",
+            padding: "12px",
+            marginBottom: "24px",
+            borderRadius: "6px",
+            border: "1px solid #555",
+            background: "#222",
+            color: "#fff",
+            fontSize: "1rem",
+          }}
+        />
 
-            {/* รูปที่ 5 */}
-            <div style={cardStyle}>
-              <img src="https://via.placeholder.com/300x180?text=Image+5" alt="Image 5" style={imgStyle} />
-              <div style={descStyle}>คำอธิบายรูปภาพที่ 5</div>
-            </div>
-
-            {/* รูปที่ 6 */}
-            <div style={cardStyle}>
-              <img src="https://via.placeholder.com/300x180?text=Image+6" alt="Image 6" style={imgStyle} />
-              <div style={descStyle}>คำอธิบายรูปภาพที่ 6</div>
-            </div>
-
-            {/* รูปที่ 7 */}
-            <div style={cardStyle}>
-              <img src="https://via.placeholder.com/300x180?text=Image+7" alt="Image 7" style={imgStyle} />
-              <div style={descStyle}>คำอธิบายรูปภาพที่ 7</div>
-            </div>
-
-            {/* รูปที่ 8 */}
-            <div style={cardStyle}>
-              <img src="https://via.placeholder.com/300x180?text=Image+8" alt="Image 8" style={imgStyle} />
-              <div style={descStyle}>คำอธิบายรูปภาพที่ 8</div>
-            </div>
-
-            {/* รูปที่ 9 */}
-            <div style={cardStyle}>
-              <img src="https://via.placeholder.com/300x180?text=Image+9" alt="Image 9" style={imgStyle} />
-              <div style={descStyle}>คำอธิบายรูปภาพที่ 9</div>
-            </div>
-
-            {/* รูปที่ 10 */}
-            <div style={cardStyle}>
-              <img src="https://via.placeholder.com/300x180?text=Image+10" alt="Image 10" style={imgStyle} />
-              <div style={descStyle}>คำอธิบายรูปภาพที่ 10</div>
-            </div>
-          </div>
-          
+        {/* Submit */}
+        <button
+          onClick={handleSubmit}
+          style={{
+            width: "100%",
+            padding: "14px",
+            fontSize: "1rem",
+            backgroundColor: "#c6ff00",
+            color: "#000",
+            fontWeight: "bold",
+            border: "none",
+            borderRadius: "6px",
+            cursor: "pointer",
+          }}
+        >
+          เติมเงิน
+        </button>
       </div>
     </div>
   );

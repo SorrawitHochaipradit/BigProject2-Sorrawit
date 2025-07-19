@@ -6,11 +6,10 @@ function Home() {
 
   const menu = [
     { to: "/", label: "หน้าหลัก" },
-    { to: "/data", label: "เกม" },
-    { to: "/about", label: "โปรโมชั่น" },
+    { to: "/data", label: "แนะนำ" },
+    { to: "/about", label: "เติมเกม" },
   ];
 
-  // กำหนดรูปภาพ 4 รูป
   const slides = [
     {
       img: "https://cdn1.codashop.com/S/content/common/images/mno/rag_Thailand.jpg",
@@ -32,22 +31,17 @@ function Home() {
 
   const [current, setCurrent] = useState(0);
 
-  // ฟังก์ชันเลื่อนซ้าย/ขวา
   const prevSlide = () => {
     setCurrent((prev) => (prev === 0 ? slides.length - 1 : prev - 1));
   };
+
   const nextSlide = () => {
     setCurrent((prev) => (prev === slides.length - 1 ? 0 : prev + 1));
   };
 
-  // หาค่าดัชนีรูปที่จะแสดง (3 รูป)
   const getVisibleSlides = () => {
     if (slides.length <= 3) return slides;
-    let arr = [];
-    for (let i = 0; i < 3; i++) {
-      arr.push(slides[(current + i) % slides.length]);
-    }
-    return arr;
+    return Array.from({ length: 3 }, (_, i) => slides[(current + i) % slides.length]);
   };
 
   return (
@@ -58,9 +52,6 @@ function Home() {
         width: "100vw",
         margin: 0,
         padding: 0,
-        // position: "fixed",  // <-- ลบบรรทัดนี้ออก
-        // top: 0,
-        // left: 0,
         overflowX: "hidden",
       }}
     >
@@ -69,21 +60,14 @@ function Home() {
         style={{
           display: "flex",
           alignItems: "center",
-          justifyContent: "center",
-          padding: "16px 40px",
+          justifyContent: "space-between",
+          padding: "12px 40px",
+          height: "60px",
           background: "#000",
           position: "relative",
         }}
       >
-        {/* Logo */}
-        <div
-          style={{
-            display: "flex",
-            alignItems: "center",
-            position: "absolute",
-            left: "40px",
-          }}
-        >
+        <div style={{ display: "flex", alignItems: "center", height: "100%" }}>
           <span
             style={{
               color: "#fff",
@@ -91,74 +75,16 @@ function Home() {
               fontSize: "2rem",
               letterSpacing: "2px",
               fontFamily: "Arial, sans-serif",
+              lineHeight: "1",
             }}
           >
-            GAME
-            <span style={{ color: "#c6ff00" }}>ON</span>
+            term<span style={{ color: "#c6ff00" }}>game</span>
           </span>
         </div>
-        {/* Search */}
-        <div
-          style={{
-            flex: "0 1 500px",
-            display: "flex",
-            justifyContent: "center",
-          }}
-        >
-          <input
-            type="text"
-            placeholder="ค้นหา"
-            style={{
-              width: "350px",
-              padding: "8px 16px",
-              borderRadius: "6px",
-              border: "none",
-              background: "#333",
-              color: "#fff",
-              fontSize: "1rem",
-              marginRight: "8px",
-            }}
-          />
-          <select
-            style={{
-              background: "#333",
-              color: "#fff",
-              border: "none",
-              borderRadius: "6px",
-              padding: "8px",
-              fontSize: "1rem",
-            }}
-          >
-            <option>▼</option>
-          </select>
-        </div>
-        {/* Right Menu */}
-        <div
-          style={{
-            display: "flex",
-            alignItems: "center",
-            gap: "24px",
-            position: "absolute",
-            right: "40px",
-          }}
-        >
-          <span style={{ color: "#fff", fontSize: "1rem" }}>ไทย ▼</span>
-          <span
-            style={{ color: "#fff", fontSize: "1.5rem", cursor: "pointer" }}
-          >
-            🛒
-          </span>
-          <span style={{ color: "#fff", fontSize: "1rem", cursor: "pointer" }}>
-            ลงทะเบียน
-          </span>
-          <span
-            style={{ color: "#c6ff00", fontSize: "1rem", cursor: "pointer" }}
-          >
-            เข้าสู่ระบบ
-          </span>
-        </div>
+        
       </nav>
-      {/* Main Menu Bar */}
+
+      {/* Main Menu */}
       <div
         style={{
           display: "flex",
@@ -166,7 +92,6 @@ function Home() {
           alignItems: "center",
           background: "#000",
           borderBottom: "1px solid #222",
-          position: "relative",
         }}
       >
         {menu.map((item) => (
@@ -183,9 +108,7 @@ function Home() {
               display: "inline-block",
               textAlign: "center",
               fontFamily: "inherit",
-              ...(location.pathname === item.to && {
-                color: "#fff",
-              }),
+              ...(location.pathname === item.to && { color: "#fff" }),
             }}
           >
             {item.label}
@@ -206,6 +129,7 @@ function Home() {
           </Link>
         ))}
       </div>
+
       {/* Image Slider */}
       <div
         style={{
@@ -288,7 +212,47 @@ function Home() {
           &#62;
         </button>
       </div>
-      {/* กรอบลิงค์ไปหน้า data */}
+
+      {/* คำอธิบายเกม EA SPORTS FC™ MOBILE 24 */}
+      <div
+        style={{
+          width: "100vw",
+          display: "flex",
+          justifyContent: "center",
+          marginTop: "40px",
+          padding: "0 24px",
+        }}
+      >
+        <div
+          style={{
+            maxWidth: "960px",
+            textAlign: "center",
+            color: "#ddd",
+            fontSize: "1rem",
+            lineHeight: "1.8",
+            fontFamily: "Arial, sans-serif",
+          }}
+        >
+          <h2
+            style={{
+              color: "#c6ff00",
+              fontSize: "1.6rem",
+              marginBottom: "16px",
+              fontWeight: "bold",
+            }}
+          >
+            เกี่ยวกับ EA SPORTS FC™ MOBILE 24
+          </h2>
+          <p>
+            EA SPORTS FC™ MOBILE 24 คือเกมฟุตบอลบนมือถือสุดมันส์จากค่าย EA Sports ที่ยกระดับการเล่นฟุตบอลให้สมจริงยิ่งขึ้น 
+            ผู้เล่นสามารถจัดทีมในฝันจากนักเตะระดับโลก แข่งขันในโหมดต่าง ๆ ทั้งแบบเดี่ยวและมัลติเพลเยอร์
+            พร้อมกราฟิกที่ลื่นไหล และระบบควบคุมที่พัฒนามาให้เหมาะกับการเล่นบนหน้าจอสัมผัส
+            ไม่ว่าคุณจะเป็นสายวางแผนหรือสายบุก เกมนี้ก็ให้คุณควบคุมได้ทุกจังหวะของการแข่งขัน
+          </p>
+        </div>
+      </div>
+
+      {/* แนะนำเกม */}
       <div
         style={{
           width: "100vw",
@@ -307,7 +271,6 @@ function Home() {
             display: "flex",
             flexDirection: "column",
             alignItems: "center",
-            position: "relative",
             overflow: "hidden",
           }}
         >
@@ -322,7 +285,6 @@ function Home() {
               borderTopRightRadius: "8px",
             }}
           />
-          {/* ลบกล่องสีเขียวและข้อความ "ลดสูงสุด 7%" ออก */}
           <div
             style={{
               color: "#fff",

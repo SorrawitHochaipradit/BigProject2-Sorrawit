@@ -6,43 +6,105 @@ function Data() {
 
   const menu = [
     { to: "/", label: "หน้าหลัก" },
-    { to: "/data", label: "เกม" },
-    { to: "/about", label: "โปรโมชั่น" },
+    { to: "/data", label: "แนะนำ" },
+    { to: "/about", label: "เติมเกม" },
   ];
 
-  // ข้อมูลผู้เล่น 50 แถว
   const players = [
-  {
-    name: "Lionel Messi",
-    position: "RW",
-    ovr: 93,
-    img: "https://upload.wikimedia.org/wikipedia/commons/8/89/Lionel_Messi_20180626.jpg",
-    stats: {
-      PAC: 85,
-      SHO: 92,
-      PAS: 91,
-      DRI: 95,
-      DEF: 38,
-      PHY: 65,
+    {
+      name: "Drogba",
+      position: "ST",
+      ovr: 111,
+      stats: { PAC: 120, SHO: 130, PAS: 100, DRI: 109, DEF: 60, PHY: 123 },
     },
-  },
-  {
-    name: "Cristiano Ronaldo",
-    position: "ST",
-    ovr: 91,
-    img: "https://upload.wikimedia.org/wikipedia/commons/8/8c/Cristiano_Ronaldo_2018.jpg",
-    stats: {
-      PAC: 87,
-      SHO: 93,
-      PAS: 82,
-      DRI: 89,
-      DEF: 35,
-      PHY: 77,
+    {
+      name: "Garrincha",
+      position: "RW",
+      ovr: 111,
+      stats: { PAC: 133, SHO: 115, PAS: 117, DRI: 134, DEF: 50, PHY: 76 },
     },
-  },
-  // 👉 เพิ่มอีก 49 คนในรูปแบบเดียวกัน
-];
-
+    {
+      name: "Carlos Alberto",
+      position: "RB",
+      ovr: 111,
+      stats: { PAC: 125, SHO: 74, PAS: 102, DRI: 108, DEF: 130, PHY: 122 },
+    },
+    {
+      name: "Best",
+      position: "LW",
+      ovr: 111,
+      stats: { PAC: 135, SHO: 123, PAS: 112, DRI: 134, DEF: 67, PHY: 84 },
+    },
+    {
+      name: "Yashin",
+      position: "GK",
+      ovr: 111,
+      stats: { PAC: 68, SHO: 28, PAS: 83, DRI: 95, DEF: 47, PHY: 105 },
+    },
+    {
+      name: "Blanc",
+      position: "CB",
+      ovr: 111,
+      stats: { PAC: 111, SHO: 83, PAS: 96, DRI: 108, DEF: 132, PHY: 123 },
+    },
+    {
+      name: "Charlton",
+      position: "CAM",
+      ovr: 111,
+      stats: { PAC: 122, SHO: 127, PAS: 119, DRI: 132, DEF: 62, PHY: 90 },
+    },
+    {
+      name: "Beckkenbauer",
+      position: "CB",
+      ovr: 110,
+      stats: { PAC: 112, SHO: 89, PAS: 113, DRI: 112, DEF: 128, PHY: 114 },
+    },
+    {
+      name: "Lampard",
+      position: "CM",
+      ovr: 110,
+      stats: { PAC: 117, SHO: 110, PAS: 114, DRI: 95, DEF: 103, PHY: 106 },
+    },
+    {
+      name: "Vollor",
+      position: "ST",
+      ovr: 110,
+      stats: { PAC: 126, SHO: 128, PAS: 97, DRI: 116, DEF: 58, PHY: 110 },
+    },
+    {
+      name: "Hagi",
+      position: "RM",
+      ovr: 110,
+      stats: { PAC: 126, SHO: 115, PAS: 122, DRI: 126, DEF: 48, PHY: 84 },
+    },
+    {
+      name: "Keane",
+      position: "CDM",
+      ovr: 110,
+      stats: { PAC: 106, SHO: 84, PAS: 107, DRI: 113, DEF: 125, PHY: 123 },
+    },
+    {
+      name: "King",
+      position: "CB",
+      ovr: 110,
+      stats: { PAC: 109, SHO: 63, PAS: 88, DRI: 103, DEF: 132, PHY: 123 },
+    },
+    {
+      name: "Mascherano",
+      position: "CDM",
+      ovr: 110,
+      stats: { PAC: 110, SHO: 79, PAS: 102, DRI: 106, DEF: 127, PHY: 116 },
+    },
+    {
+      name: "Shevchenko",
+      position: "ST",
+      ovr: 110,
+      stats: { PAC: 121, SHO: 127, PAS: 96, DRI: 116, DEF: 46, PHY: 103 },
+    },
+    
+    
+    // เพิ่มข้อมูลเพิ่มตามต้องการ
+  ];
 
   return (
     <div
@@ -57,87 +119,36 @@ function Data() {
     >
       {/* Navigation Bar */}
       <nav
-        style={{
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "center",
-          padding: "16px 40px",
-          background: "#000",
-          position: "relative",
-        }}
-      >
-        <div
-          style={{
-            display: "flex",
-            alignItems: "center",
-            position: "absolute",
-            left: "40px",
-          }}
-        >
-          <span
-            style={{
-              color: "#fff",
-              fontWeight: "bold",
-              fontSize: "2rem",
-              letterSpacing: "2px",
-              fontFamily: "Arial, sans-serif",
-            }}
-          >
-            GAME
-            <span style={{ color: "#c6ff00" }}>ON</span>
-          </span>
-        </div>
+  style={{
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "space-between",
+    padding: "12px 40px",    // ปรับเป็น padding เหมือนกันทั้งบนล่าง
+    height: "60px",          // กำหนดความสูงให้คงที่
+    background: "#000",
+    position: "relative",
+  }}
+>
+  {/* Logo */}
+  <div style={{ display: "flex", alignItems: "center", height: "100%" }}>
+    <span
+      style={{
+        color: "#fff",
+        fontWeight: "bold",
+        fontSize: "2rem",
+        letterSpacing: "2px",
+        fontFamily: "Arial, sans-serif",
+        lineHeight: "1",   // ลดช่องว่างของข้อความให้แน่นขึ้น
+      }}
+    >
+      term<span style={{ color: "#c6ff00" }}>game</span>
+    </span>
+  </div>
 
-        <div
-          style={{
-            flex: "0 1 500px",
-            display: "flex",
-            justifyContent: "center",
-          }}
-        >
-          <input
-            type="text"
-            placeholder="ค้นหา"
-            style={{
-              width: "350px",
-              padding: "8px 16px",
-              borderRadius: "6px",
-              border: "none",
-              background: "#333",
-              color: "#fff",
-              fontSize: "1rem",
-              marginRight: "8px",
-            }}
-          />
-          <select
-            style={{
-              background: "#333",
-              color: "#fff",
-              border: "none",
-              borderRadius: "6px",
-              padding: "8px",
-              fontSize: "1rem",
-            }}
-          >
-            <option>▼</option>
-          </select>
-        </div>
+  {/* Right Menu */}
+  
+</nav>
 
-        <div
-          style={{
-            display: "flex",
-            alignItems: "center",
-            gap: "24px",
-            position: "absolute",
-            right: "40px",
-          }}
-        >
-          <span style={{ color: "#fff", fontSize: "1rem" }}>ไทย ▼</span>
-          <span style={{ color: "#fff", fontSize: "1.5rem", cursor: "pointer" }}>🛒</span>
-          <span style={{ color: "#fff", fontSize: "1rem", cursor: "pointer" }}>ลงทะเบียน</span>
-          <span style={{ color: "#c6ff00", fontSize: "1rem", cursor: "pointer" }}>เข้าสู่ระบบ</span>
-        </div>
-      </nav>
 
       {/* Main Menu Bar */}
       <div
@@ -183,7 +194,7 @@ function Data() {
         ))}
       </div>
 
-      {/* Table */}
+      {/* Player Table */}
       <div style={{ maxWidth: "1000px", margin: "40px auto", padding: "0 20px" }}>
         <div
           style={{
@@ -193,8 +204,9 @@ function Data() {
             marginBottom: "16px",
           }}
         >
-          Player Stats Table
+          แนะนำตัวละครที่ดีที่สุด 15 ตัวในเกม
         </div>
+
         <div>
           {/* Header */}
           <div
@@ -233,24 +245,14 @@ function Data() {
               }}
             >
               <div style={{ display: "flex", alignItems: "center" }}>
-                <img
-                  src={p.img}
-                  alt={p.name}
-                  style={{
-                    width: "40px",
-                    height: "40px",
-                    borderRadius: "8px",
-                    objectFit: "cover",
-                    background: "#000",
-                    marginRight: "8px",
-                    border: "2px solid #c6ff00",
-                  }}
-                />
+                
                 <span>{p.ovr}</span>
               </div>
               <div>
                 <div style={{ fontWeight: "bold" }}>{p.name}</div>
-                <div style={{ fontSize: "0.85rem", color: "#c6ff00" }}>{p.position}</div>
+                <div style={{ fontSize: "0.85rem", color: "#c6ff00" }}>
+                  {p.position}
+                </div>
               </div>
               <div>{p.stats.PAC}</div>
               <div>{p.stats.SHO}</div>
